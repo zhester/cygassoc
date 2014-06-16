@@ -1,0 +1,38 @@
+/****************************************************************************
+
+Resource Script Specific to the "vimassoc" Build
+
+****************************************************************************/
+
+//Use the custom Vim icon as the program's icon.
+a ICON "icons/vim.ico"
+
+//Declare embedded executable information.
+1 VERSIONINFO
+
+FILEVERSION     0,0,0,0
+PRODUCTVERSION  0,0,0,0
+
+BEGIN
+
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904E4"
+    BEGIN
+      VALUE "CompanyName", "Zac Hester"
+      VALUE "FileDescription", "Vim"
+      VALUE "FileVersion", "0.0"
+      VALUE "InternalName", "vimassoc"
+      VALUE "LegalCopyright", "2014 Zac Hester"
+      VALUE "OriginalFilename", "vimassoc.exe"
+      VALUE "ProductName", "vimassoc"
+      VALUE "ProductVersion", "0.0"
+    END
+  END
+
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x409, 1252
+  END
+
+END
