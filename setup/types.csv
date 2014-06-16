@@ -1,37 +1,37 @@
 Ext,Description,Flags
-,Extensionless Text File
-asm,Assembly Source
+,Extensionless Text File,
+asm,Assembly Source,
 bat,Batch Script,optional
-c,C Source
-c++,C++ Source
-conf,Application Configuration
-cpp,C++ Source
-css,Cascading Style Sheet
-csv,Comma-separated Values
-dtd,DTD Specification
-fs,Forth Script
-h,C Header
-h++,C++ Header
-hpp,C++ Header
+c,C Source,
+c++,C++ Source,
+conf,Application Configuration,
+cpp,C++ Source,
+css,Cascading Style Sheet,
+csv,Comma-separated Values,
+dtd,DTD Specification,
+fs,Forth Script,
+h,C Header,
+h++,C++ Header,
+hpp,C++ Header,
 html,HTML Markup,optional
-inc,Include File
-ini,Initialization Configuration
-java,Java Source
-js,JavaScript Script
-json,JavaScript Object Notation
-lsp,Lisp Script
-lua,LUA Script
-md,Markdown
-php,PHP Script
+inc,Include File,
+ini,Initialization Configuration,
+java,Java Source,
+js,JavaScript Script,
+json,JavaScript Object Notation,
+lsp,Lisp Script,
+lua,LUA Script,
+md,Markdown,
+php,PHP Script,
 pl,Perl Script,optional
-pm,Perl Module
+pm,Perl Module,
 py,Python Script,optional
-s,Assembly Source
+s,Assembly Source,
 sh,Shell Script,optional
-sql,SQL
-svg,SVG Image
+sql,SQL,
+svg,SVG Image,
 txt,Plain Text,optional
 vbs,Visual Basic Script,optional
 xhtml,XHTML Markup,optional
 xml,XML Markup,optional
-xslt,XSL Markup
+xslt,XSL Markup,
