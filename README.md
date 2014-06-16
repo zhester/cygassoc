@@ -158,11 +158,11 @@ Windows file type association is most easily managed via the `assoc` and
 
 Example (&gt; is input):
 
-    &gt;assoc .c
+    >assoc .c
     .c=CSource
-    &gt;ftype CSource
+    >ftype CSource
     CSource=notepad.exe "%1"
-    &gt;ftype CSource=C:\cygwin\vimassoc.exe "%1"
+    >ftype CSource=C:\cygwin\vimassoc.exe "%1"
 
 The "gotcha" to using this method is that the current user will occasionally
 have an override to the system's association for a given file type.  The
@@ -178,7 +178,7 @@ Windows explorer to target the program as its default.
 
 This can be used to associate all files that do not have an extension:
 
-    &gt;assoc .=txtfile
+    >assoc .=txtfile
 
 Here, we're associating everything as a `txtfile` which is what Windows uses
 as the default file type name for plain text (.txt) files initially.
