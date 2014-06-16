@@ -15,9 +15,9 @@ I quickly became frustrated at the dual- and triple-maintenence between
 various installations/varieties of Vim between my FreeBSD desktops, servers,
 and Windows desktops.  I tried gVim, but under Windows it's like driving a
 Lotus through a corn field.  I quickly realized a powerful editor like Vim
-also needs a lot of supporting applications to keep the workflow seemless.
+also needs a lot of supporting applications to keep the workflow seamless.
 
-Eventually, I paired everything down to the common denominator: Vim through
+Eventually, I pared everything down to one common denominator: Vim through
 some form of an xterm.  This gives me the exact same editing environment
 whether I'm on a full, graphical desktop (Windows or Unix) or editing files on
 a remote system over SSH (of which, I do a considerable amount).
@@ -91,11 +91,11 @@ available.  Adjusting the code and re-compiling is the currently preferred
 method to adapt this application to various environments.  Most of the
 settings are found in the following files:
 
-- config.h
+- `config.h`:
     Defines all file paths and program options.  This is where you'd
-    change you shell to bash.
+    change your shell to bash.
 
-- Makefile
+- `Makefile`:
     Includes the target-specific information.  Replace the first real
     line (`include vimassoc.Makefile`) with a different set of values
     or a file defining customized values from the one provided.
@@ -121,7 +121,7 @@ This program requires native Windows compiling.  Under Cygwin, this can be
 compiled using the included Makefile with the MinGW compiler for 64-bit
 targets:
 
-  Devel/mingw64-i686-gcc
+    Devel/mingw64-i686-gcc
 
 The Makefile should work fairly universally, but was only used with GNU make
 under Cygwin.
@@ -158,11 +158,11 @@ Windows file type association is most easily managed via the `assoc` and
 
 Example (&gt; is input):
 
-  &gt;assoc .c
-  .c=CSource
-  &gt;ftype CSource
-  CSource=notepad.exe "%1"
-  &gt;ftype CSource=C:\cygwin\vimassoc.exe "%1"
+    &gt;assoc .c
+    .c=CSource
+    &gt;ftype CSource
+    CSource=notepad.exe "%1"
+    &gt;ftype CSource=C:\cygwin\vimassoc.exe "%1"
 
 The "gotcha" to using this method is that the current user will occasionally
 have an override to the system's association for a given file type.  The
@@ -178,7 +178,7 @@ Windows explorer to target the program as its default.
 
 This can be used to associate all files that do not have an extension:
 
-  assoc .=txtfile
+    &gt;assoc .=txtfile
 
 Here, we're associating everything as a `txtfile` which is what Windows uses
 as the default file type name for plain text (.txt) files initially.
