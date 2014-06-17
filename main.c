@@ -82,6 +82,9 @@ int WINAPI WinMain(                 //Windows program entry point
 
     //parse the command line
     arguments = CommandLineToArgvW( GetCommandLineW(), &argc );
+    if( arguments == NULL ) {
+        return 1;
+    }
 
     //see if a file was specified
     if( argc > 1 ) {
@@ -89,6 +92,10 @@ int WINAPI WinMain(                 //Windows program entry point
         //check for need to convert to ANSI characters
         #ifndef UNICODE
             argv = wc2mb_array( ( LPCWSTR* ) arguments, argc );
+            if( argv == NULL ) {
+                LocalFree( arguments );
+                return 1;
+            }
         #else
             argv = arguments;
         #endif
@@ -166,6 +173,11 @@ int WINAPI WinMain(                 //Windows program entry point
         CloseHandle( cp_pr_info.hThread );
     }
 
+    //console was not started
+    else {
+        exit_code = 1;
+    }
+
     //return exit code from spawned process
     return exit_code;
 }
@@ -180,9 +192,16 @@ static void free_array(             //frees an array of pointed-to things
     //local variables
     int                 index;      //array index
 
+    //check pointer
+    if( array == NULL ) {
+        return;
+    }
+
     //free each item in the array
     for( index = 0; index < count; ++index ) {
-        free( array[ index ] );
+        if( array[ index ] != NULL ) {
+            free( array[ index ] );
+        }
     }
 
     //free the array of pointers
@@ -196,6 +215,12 @@ static char** wc2mb_array(          //convert array of strings WC -> MB
     int                 count       //number of strings in array
 ) {                                 //multi-byte array of string pointers
 
+    //cleanly stops the string conversion loop
+    #define stop_conversion()                           \
+        free_array( ( void** ) result, ( index + 1 ) ); \
+        result = NULL;                                  \
+        break
+
     //local variables
     int                 conv_result;//result of string conversion
     int                 index;      //array index
@@ -208,6 +233,7 @@ static char** wc2mb_array(          //convert array of strings WC -> MB
     //allocate an array of string pointers
     result = calloc( count, sizeof( char* ) );
 
+    //check allocation
     if( result == NULL ) {
         return NULL;
     }
@@ -224,6 +250,13 @@ static char** wc2mb_array(          //convert array of strings WC -> MB
         //allocate storage for the same number of bytes
         result[ index ] = calloc( size, sizeof( char ) );
 
+        //check allocation
+        if( result[ index ] == NULL ) {
+
+            //free any allocated memory, and stop converting strings
+            stop_conversion();
+        }
+
         //perform the conversion to a multi-byte string
         conv_result = WideCharToMultiByte(
             CP_ACP,                 //use context's codepage
@@ -239,15 +272,12 @@ static char** wc2mb_array(          //convert array of strings WC -> MB
         //check the conversion
         if( conv_result != length ) {
 
-            //free the memory allocated up to this point
-            free_array( ( void** ) result, ( index + 1 ) );
-
-            //indicate a failure
-            return NULL;
+            //free any allocated memory, and stop converting strings
+            stop_conversion();
         }
     }
 
-    //return list of converted strings
+    //return list of converted strings (or NULL on failure)
     return result;
 }
 
