@@ -151,7 +151,6 @@ int WINAPI WinMain(                 //Windows program entry point
         NULL,
         NULL,
         FALSE,
-        //CREATE_NO_WINDOW,
         0,
         NULL,
         NULL,
@@ -186,7 +185,7 @@ static void free_array(             //frees an array of pointed-to things
         free( array[ index ] );
     }
 
-    //free the array pointers
+    //free the array of pointers
     free( array );
 }
 
