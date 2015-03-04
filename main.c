@@ -116,7 +116,7 @@ int WINAPI WinMain(                 //Windows program entry point
         str_result = StringCchPrintf(
             command,
             BUFFER_SIZE,
-            _T( "%s %s '%s %s'" ),
+            _T( "%s %s '%s \"%s\"'" ),
             config_console,
             config_shell,
             config_target,

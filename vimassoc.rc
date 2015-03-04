@@ -10,8 +10,8 @@ a ICON "icons/vim.ico"
 //Declare embedded executable information.
 1 VERSIONINFO
 
-FILEVERSION     0,0,0,0
-PRODUCTVERSION  0,0,0,0
+FILEVERSION     0,0,1,0
+PRODUCTVERSION  0,0,1,0
 
 BEGIN
 
@@ -21,12 +21,12 @@ BEGIN
     BEGIN
       VALUE "CompanyName", "Zac Hester"
       VALUE "FileDescription", "Vim"
-      VALUE "FileVersion", "0.0"
+      VALUE "FileVersion", "0.0.1"
       VALUE "InternalName", "vimassoc"
-      VALUE "LegalCopyright", "2014 Zac Hester"
+      VALUE "LegalCopyright", "2015 Zac Hester"
       VALUE "OriginalFilename", "vimassoc.exe"
       VALUE "ProductName", "vimassoc"
-      VALUE "ProductVersion", "0.0"
+      VALUE "ProductVersion", "0.0.1"
     END
   END
 
