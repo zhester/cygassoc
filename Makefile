@@ -14,7 +14,7 @@ include vimassoc.Makefile
 # Basic compile environment settings
 BINPF   := /usr/bin
 CC      := $(BINPF)/i686-w64-mingw32-gcc.exe
-CFLAGS   = -Wall -static -mwindows -DWIN32_LEAN_AND_MEAN
+CFLAGS   = -Wall -static -mwindows -DWIN32_LEAN_AND_MEAN -fgnu89-inline
 LD      := $(CC)
 LDFLAGS  = -Wall -static -mwindows -s
 WR      := $(BINPF)/i686-w64-mingw32-windres.exe
